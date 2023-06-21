@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class CategoryController extends Controller
 {
@@ -69,9 +71,15 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $val_data = $request->validate(
+            [ "name" => 'required|unique:categories|max:50']);
+
+        $val_data['slug'] = Str::slug($val_data['name']);
+        $category->update($val_data);
+        return redirect()->back()->with('message', "Categoria $category->name aggiornata correttamente ");
+
     }
 
     /**

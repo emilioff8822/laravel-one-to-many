@@ -16,10 +16,24 @@
         </h2>
         <div class="w-50">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Nuova Categoria" aria-label="nuova categoria"
-                    aria-describedby="basic-addon2">
-                <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-plus"></i> Add</span>
+                <form action="{{ route('admin.categories.store') }}" method="POST">
+                    @csrf
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="name" placeholder="Nuova Categoria"
+                            aria-label="nuova categoria" aria-describedby="basic-addon2">
+                        <button class="input-group-text" id="basic-addon2" type="submit"><i class="fa-solid fa-plus"></i>
+                            Add</button>
+                    </div>
+
+
+                </form>
+
+
+
+
             </div>
+
 
         </div>
 

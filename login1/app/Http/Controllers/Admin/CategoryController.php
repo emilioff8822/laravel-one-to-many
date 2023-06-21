@@ -37,10 +37,21 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+   public function store(Request $request)
+{
+    $val_data = $request->validate([
+        "name" => 'required|unique:categories|max:50'
+    ]);
+
+    $val_data['slug'] = Str::slug($val_data['name']);
+
+    $new_category = new Category();
+    $new_category->fill($val_data);
+    $new_category->save();
+
+    return redirect()->back()->with('message', "Categoria {$new_category->name} creata correttamente");
+}
+
 
     /**
      * Display the specified resource.

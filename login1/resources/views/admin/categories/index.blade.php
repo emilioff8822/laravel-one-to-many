@@ -59,8 +59,14 @@
                         </td>
                         <td>
                             <button class="btn btn-success" onclick="submitEditForm()">Salva</button>
-                            <a href="#" class="btn btn-danger">Elimina</a>
+                            @include('admin.partials.form-delete', [
+                                'title' => 'Eliminazione Categoria',
+                                'id' => $category->id,
+                                'message' => "Confermi l'eliminazione della categoria {$category->name}?",
+                                'route' => route('admin.categories.destroy', $category),
+                            ])
                         </td>
+
                         <td>{{ count($category->posts) }}</td>
                     </tr>
                 @endforeach

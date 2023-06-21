@@ -14,6 +14,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([PostsTableSeeder::class]);
+        $this->call([
+                    CategoryTableSeeder::class,
+                    PostsTableSeeder::class //in produzione commentare questo seeder
+
+    ]);
     }
 }

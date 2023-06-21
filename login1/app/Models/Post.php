@@ -22,6 +22,16 @@ class Post extends Model
 
 
     ];
+     //creo la relazione con la tabella categories
+    //do il nome category che e; il nome della tabella in camelCase al singolare
+    public function category(){
+    //restiuitsco che apprtiene alla categoria
+
+        return $this->belongsTo(Category::class);
+
+
+
+    }
     public static function generateSlug($str){
 
         $slug = Str::slug($str, '-');

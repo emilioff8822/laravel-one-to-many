@@ -44,7 +44,12 @@
 
                             <!-- bottone elimina con metodo DELETE -->
 
-                            @include('admin.partials.form-delete')
+                            @include('admin.partials.form-delete', [
+                                'title' => 'Eliminazione Post',
+                                'id' => $post->id,
+                                'message' => "Confermi l'eliminazione del post {$post->title}?",
+                                'route' => route('admin.posts.destroy', $post),
+                            ])
 
 
                         </td>

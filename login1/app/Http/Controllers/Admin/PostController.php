@@ -31,7 +31,8 @@ class PostController extends Controller
 
 
     public function categoryPosts(){
-        return view('admin.posts.category-posts');
+        $categories = Category::all();
+        return view('admin.posts.category-posts' , compact ('categories'));
     }
 
     /**

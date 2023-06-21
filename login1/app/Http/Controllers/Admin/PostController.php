@@ -104,10 +104,12 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+                $categories = Category::all();
+
         $title = "Modifica di: " . $post->title;
         $method = 'PUT';
         $route = route('admin.posts.update', $post);
-        return view('admin.posts.create-edit', compact('title', 'method', 'route', 'post'));
+        return view('admin.posts.create-edit', compact('title', 'method', 'route', 'post' ,'categories'));
     }
 
     /**

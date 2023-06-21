@@ -29,6 +29,11 @@ class PostController extends Controller
         return view('admin.posts.index', compact('posts', 'direction'));
     }
 
+
+    public function categoryPosts(){
+        return view('admin.posts.category-posts');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Guest\PageController;
@@ -25,6 +26,7 @@ Route::middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('home');
         Route::resource('posts', PostController::class);
+        Route::resource('categories', CategoryController::class);// gli do il nome della tabella, categories
         Route::get('orderby/{direction}', [PostController::class, 'orderby'])->name('orderby');
 
 });

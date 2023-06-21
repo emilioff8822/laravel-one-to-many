@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostRequest;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -34,15 +35,15 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-
     {
+        $categories = Category::all();
         $title = 'Creazione di un nuovo post';
         $method = 'POST';
         $route = route('admin.posts.store');
         //post glielo passo come null quindi nell'old non puo esistere title
         $post = null;
 
-        return view('admin.posts.create-edit', compact('title', 'method', 'route', 'post'));
+        return view('admin.posts.create-edit', compact('title', 'method', 'route', 'post', 'categories'));
     }
 
     /**

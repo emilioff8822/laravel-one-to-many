@@ -36,6 +36,17 @@
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
+            <div class="mb-3">
+                <label for="title" class="form-label">Categorie</label>
+                <select class="form-select" name="category_id">
+                    <option value="">Selezionare una categoria</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+
+                </select>
+
+            </div>
 
             <div class="mb-3">
                 <label for="text" class="form-label">Testo</label>

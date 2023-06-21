@@ -11,6 +11,10 @@
         </h2>
 
         <p>{{ $date_formatted }}</p>
+        <div>
+            <span class="badge text-bg-warning">{{ $post->category?->name }}</span>
+
+        </div>
         <p>{!! $post->text !!}</p>
         <div>
             <img width="50%" src="{{ asset('storage/' . $post->image_path) }}" alt="{{ $post->title }}">

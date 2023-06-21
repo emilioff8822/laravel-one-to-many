@@ -20,6 +20,7 @@
                 <tr>
                     <th scope="col"><a href="{{ route('admin.orderby', ['direction' => $direction]) }}">#ID</a></th>
                     <th scope="col">Titolo</th>
+                    <th scope="col">Categoria</th>
                     <th scope="col">Data</th>
                     <th scope="col">Azioni</th>
                 </tr>
@@ -29,6 +30,8 @@
                     <tr>
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->title }}</td>
+                        <td><span class="badge text-bg-warning">{{ $post->category?->name }}</span>
+                        </td>
                         @php
                             $date = date_create($post->date);
                         @endphp

@@ -41,8 +41,11 @@
                 <select class="form-select" name="category_id">
                     <option value="">Selezionare una categoria</option>
                     @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        <option value="{{ $category->id }}" @if ($category->id == old('category_id')) selected @endif>
+                            {{ $category->name }}
+                        </option>
                     @endforeach
+
 
                 </select>
 
